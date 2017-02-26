@@ -1,10 +1,19 @@
 Rails.application.routes.draw do
 
-  devise_for :users
-  get 'cart/index'
-
   resources :products
+  devise_for :users
+
   root 'page#home'
+
+  #Rutas para cart
+
+  get '/cart' => 'cart#index'
+
+  get '/cart/clear' => 'cart#clearCart'
+
+  get '/cart/:id' => 'cart#add'
+
+  #Rutas para estaticas
 
   get 'page/home'
 
